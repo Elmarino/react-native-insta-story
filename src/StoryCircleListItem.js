@@ -48,11 +48,10 @@ class StoryCircleListItem extends Component {
                     style={[
                         styles.avatarWrapper,
                         {
-                            height: avatarSize ? avatarSize + 4 : 64,
-                            width: avatarSize ? avatarSize + 4 : 64,
+                            height: avatarSize ? avatarSize + 6.5 : 64,
+                            width: avatarSize ? avatarSize + 7 : 64,
                             borderRadius: avatarSize > 100 ? 16 : 100,
-                            marginLeft: avatarSize > 100 ? -12 : 0
-
+                            marginLeft: avatarSize > 100 ? 0 : 0
                         },
                         !isPressed
                             ? {
