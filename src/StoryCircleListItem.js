@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {View, Image, TouchableOpacity, Text, StyleSheet, Platform} from "react-native";
+import React, { Component } from "react";
+import { View, Image, TouchableOpacity, Text, StyleSheet, Platform } from "react-native";
 import colors from "../../../src/global/constants";
 import firebase from '@react-native-firebase/app';
 
@@ -18,16 +18,16 @@ class StoryCircleListItem extends Component {
 
     // Component Functions
     _handleItemPress = item => {
-        const {handleStoryItemPress} = this.props;
+        const { handleStoryItemPress } = this.props;
 
         if (handleStoryItemPress) handleStoryItemPress(item);
 
-        this.setState({isPressed: true});
+        this.setState({ isPressed: true });
     };
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.item.seen != this.props.item.seen) {
-            this.setState({isPressed: this.props.item.seen});
+            this.setState({ isPressed: this.props.item.seen });
         }
     }
 
@@ -40,7 +40,7 @@ class StoryCircleListItem extends Component {
             showText,
             textStyle
         } = this.props;
-        const {isPressed} = this.state;
+        const { isPressed } = this.state;
         return (
             <View style={styles.container}>
                 <TouchableOpacity
@@ -48,10 +48,11 @@ class StoryCircleListItem extends Component {
                     style={[
                         styles.avatarWrapper,
                         {
-                            height: avatarSize ? avatarSize + 6.5 : 64,
-                            width: avatarSize ? avatarSize + 7 : 64,
+                            height: avatarSize ? avatarSize + 4 : 64,
+                            width: avatarSize ? avatarSize + 4 : 64,
                             borderRadius: avatarSize > 100 ? 16 : 100,
-                            marginLeft: avatarSize > 100 ? 0 : 0
+                            marginLeft: avatarSize > 100 ? 0 : 14
+
                         },
                         !isPressed
                             ? {
@@ -70,11 +71,10 @@ class StoryCircleListItem extends Component {
                         style={{
                             height: avatarSize ?? 60,
                             width: avatarSize ?? 60,
-                            borderRadius: avatarSize > 100 ? 16 : 100,
-                            // borderRadius: 100,
+                            borderRadius: avatarSize > 100 ? 14 : 100,
 
                         }}
-                        source={{uri: item.user_image}}
+                        source={{ uri: item.user_image }}
                         defaultSource={Platform.OS === 'ios' ? DEFAULT_AVATAR : null}
                     />
                 </TouchableOpacity>
@@ -105,10 +105,10 @@ const
             width: 64
         },
         text: {
-            fontFamily:'Gelion-Regular',
-            fontSize:14,
-            textAlign:'center',
-            color:colors.dBlue,
-            marginBottom:25
+            fontFamily: 'Gelion-Regular',
+            fontSize: 14,
+            textAlign: 'center',
+            color: colors.dBlue,
+            marginBottom: 25
         }
     });
