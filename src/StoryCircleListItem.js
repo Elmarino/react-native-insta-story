@@ -742,7 +742,7 @@ export const StoryListItem = (props: Props) => {
                     <View></View>
                 ) : (
                     comment ? (
-                        <KeyboardAvoidingView style={styles.keyboard} keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : -200} behavior={'position'}>
+                        <KeyboardAvoidingView style={styles.keyboard} keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : -220} behavior={'position'}>
                             <View style={[styles.bottom, { minHeight: screen.h / 9 }]}>
                                 <View style={[styles.rowContainer]}
                                 >
@@ -787,9 +787,7 @@ export const StoryListItem = (props: Props) => {
 
                         </KeyboardAvoidingView>
                     ) : (
-                        <View>
-
-                        </View>
+                        <View />
                     )
                 )}
             </GestureRecognizer>
